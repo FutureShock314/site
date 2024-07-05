@@ -1,0 +1,14 @@
+.in1 {
+    background-color: var(--bg-col);
+    color:            var(--text-col);
+
+    border-radius: 0;
+    border-bottom: 2px solid blue;
+
+    transition: all 200ms linear;
+
+    &:focus-visible {
+        outline: none;
+        border-bottom: 2px solid red;
+    }
+}
