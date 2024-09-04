@@ -1,0 +1,22 @@
+.bar {
+  width:  100%;
+  height: 40px;
+
+  background-color: black;
+
+  display: grid;
+
+  grid-template-columns: 8fr 1fr 1fr;
+}
+
+.link {
+  padding: 10px;
+
+  color: white;
+
+  text-decoration: none;
+
+  &:first {
+    flex-grow: 1;
+  }
+}

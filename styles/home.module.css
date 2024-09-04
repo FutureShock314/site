@@ -12,3 +12,26 @@
         border-bottom: 2px solid red;
     }
 }
+
+.titleContainer {
+    height: 100dvh;
+    width: 60dvw;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    & > * {
+        padding-left: 4rem;
+    }
+
+    & > h1 {
+        font-size: 5rem;
+    }
+
+    & > p {
+        padding-left: calc( 4rem + 4rem )
+    }
+
+}
+
