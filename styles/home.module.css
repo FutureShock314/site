@@ -27,11 +27,11 @@
 
     & > h1 {
         font-size: 5rem;
+        color: green;
     }
 
-    & > p {
-        padding-left: calc( 4rem + 4rem )
+    & > p, .leftPad {
+        padding-left: calc( 4rem + 4rem );
+        color: turquoise;
     }
-
 }
-

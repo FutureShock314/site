@@ -4,6 +4,7 @@
 import { useRouter } from "next/navigation"
 import { useRef, createElement } from "react"
 import styles from '@/styles/home.module.css'
+import Typewriter from 'typewriter-effect'
 
 
 export default function Home() {
@@ -16,28 +17,16 @@ export default function Home() {
   let interval = null;
 
   let p2 = 'This is a test message'
+  let p2New = '';
 
-  let original = p2
-  let originalLen = p2.length
-
-  for ( let i = 0; i > 3; i++ ) {
-    let iteration = 0;
-
-    interval = setInterval(() => {
-      p2 = p2
-        .split("")
-        .map((letter, index) => {
-          if(index < iteration) {
-            return original[index];
-          }
-
-          return letters[Math.floor(Math.random() * 26)]
-        })
-        .join("");
-    
-      iteration += 1 / 3;
-    }, 30);
+  async function typeWriter() {
+    for ( let i = 0; i > p2.length; i++ ) {
+      p2New = p2New + p2[i]
+      await new Promise(resolve => setTimeout(resolve, 1000));
+    }
   }
+
+  typeWriter()
 
   // router.push('/~/')
 
@@ -46,7 +35,15 @@ export default function Home() {
       <div className={ styles.titleContainer }>
         <h1>{ `'ello there` }</h1>
         <p>{ `I'm some guy on the internet` }</p>
-        <p>{ p2 }</p>
+        <p>{ p2New }</p>
+        <div className={ styles.leftPad }>
+          <Typewriter
+            onInit={(typewriter) => {
+              typewriter.typeString('This is a test message')
+                .start()
+            }}
+          />
+        </div>
       </div>
     </>
   )
