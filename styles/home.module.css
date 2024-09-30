@@ -72,16 +72,17 @@
 
 .gradientTransition {
     position: absolute;
-    height: 25vh;
+    
+    height: 15vh;
     width: 100vw;
-    top: -25vh;
+    top: -15vh;
 
     /* background-color: beige; */
 
-    background-color: linear-gradient(
+    background: linear-gradient(
         to top,
-        rgba( 150, 0, 0, 1 ),
-        rgba( 150, 0, 0, 0 )
+        rgba( 150, 0, 0, 1 ) 0,
+        rgba( 150, 0, 0, 0 ) 100%
     );
 }
 

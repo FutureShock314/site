@@ -5,9 +5,9 @@ import { Gradient } from "@/lib/stripeGradient";
 
 const Canvas = (props) => {
   const canvasRef2 = useRef(null);
-  const gradient = new Gradient();
-
+  
   useEffect(() => {
+    const gradient = new Gradient();
     gradient.initGradient("#gradient-canvas");
   }, []);
 

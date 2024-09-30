@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 type TypewriterProps = {
-  text: String,
+  text: string,
   delay: number,
-  cursorChar?: String,
+  cursorChar?: string,
   loop?: boolean,
 }
 
@@ -15,8 +15,8 @@ const Typewriter: React.FC<TypewriterProps> = ({ text, delay, cursorChar, loop }
   // let looping: boolean = false;
 
   useEffect(() => {
-    let timeout;
-    let wait;
+    let timeout: ReturnType<typeof setTimeout>;
+    let wait   : ReturnType<typeof setTimeout>;
     console.log( looping )
 
     if ( currIndex < text.length && !looping ) {
@@ -24,7 +24,7 @@ const Typewriter: React.FC<TypewriterProps> = ({ text, delay, cursorChar, loop }
       timeout = setTimeout(() => {
         setCurrText( prevText => prevText + text[currIndex] )
         setCurrIndex( prevIndex => prevIndex + 1)
-      }, delay)
+    }, delay)
     } else if ( loop && currIndex > 0 ) {
       setLooping(true)
       

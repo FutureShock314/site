@@ -5,14 +5,16 @@ import { useRouter } from "next/navigation"
 import { useRef, useEffect, createElement } from "react"
 import styles from '@/styles/home.module.css'
 
-// import Typewriter from 'typewriter-effect'
+import Canvas from "@/components/Canvas"
 import Typewriter from '@/components/Typewriter'
+import GlitchText from "@/components/GlitchText";
+import Page from '@/components/layout/Page';
+import GradientTransition from "@/components/layout/GradientTransition";
 
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
-import Canvas from "@/components/Canvas"
 
 
 
@@ -20,22 +22,20 @@ export default function Home() {
 
   gsap.registerPlugin(useGSAP, ScrollTrigger)
 
-  const parallax1 = useRef(),
-        parallax2 = useRef()
+  const parallax1 = useRef(null),
+        parallax2 = useRef(null)
 
-  const parallaxDistance = -500
-
-  let p2El = useRef('')
+  let p2El = useRef(null)
 
   useGSAP(
     () => {
 
 
-      let p2tl = gsap.timeline()
+      let ptl = gsap.timeline()
 
 
       // page1 parallax movement
-      p2tl.to(
+      ptl.to(
         // Target
         parallax1.current,
         // To
@@ -99,27 +99,7 @@ export default function Home() {
   )
 
 
-  
-
-  const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
-
   const router = useRouter()
-
-  let iteration = 0;
-  let interval = null;
-
-  let p2 = 'This is a test message'
-  let p2New = '';
-
-  useEffect(() => {
-    for ( let i = 0; i > p2.length; i++ ) {
-      // p2New = p2New + p2[i]
-      setTimeout(() => {
-        p2El.current.concat(p2[i])
-      }, 1000)
-    }
-  })
-
 
   // router.push('/~/')
 
@@ -131,18 +111,16 @@ export default function Home() {
           <h1>{ `'ello there` }</h1>
           <div className={ styles.leftPad }>
             <p>{ `I'm some guy on the internet` }</p>
-            <p ref={ p2El }></p>
             {/* <Typewriter
-              onInit={(typewriter) => {
-                typewriter.typeString('This is a test message')
-                  .start()
-              }}
-            /> */}
-            <Typewriter
               text="This is a test message"
               delay={ 100 }
               // cursorChar={ `>` }
-              loop
+              // loop
+            />
+            <br /> */}
+            <GlitchText 
+              text={ `This is another test message` }
+              delay={ 10 }
             />
           </div>
         </div>
@@ -150,11 +128,12 @@ export default function Home() {
 
       <div ref={ parallax1 }>
 
-        <div className={ styles.gradientTransition }></div>
+        {/* <div className={ styles.gradientTransition }></div> */}
 
-        <div className={ styles.page1 }>
+        {/* <div className={ styles.page1 }>
           wow
-        </div>
+        </div> */}
+        <Page color={ 'red' } gradientTransition gTHeight={ 10 } />
         {/* --- */}
         <div ref={ parallax2 }>
 

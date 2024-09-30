@@ -3,6 +3,8 @@ import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import Navbar from "@/components/navbar";
 
+import { StrictMode } from "react";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,7 +20,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
+  return ( <StrictMode>
     <html lang="en">
       <body className={inter.className}>
 
@@ -28,5 +30,6 @@ export default function RootLayout({
       
       </body>
     </html>
+    </StrictMode>
   );
 }
