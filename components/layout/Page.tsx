@@ -2,7 +2,7 @@ import React from "react"
 import styles from "@/styles/components/layout/page.module.css"
 import GradientTransition from '@/components/layout/GradientTransition'
 
-interface pageProps {
+interface PageProps {
   children?: React.ReactNode,
   color?: string,
   gradientTransition?: boolean,
@@ -11,7 +11,7 @@ interface pageProps {
   flexCenter?: boolean,
 }
 
-const Page: React.FC<pageProps> = ({ children, color, gradientTransition, gTHeight }) => {
+const Page: React.FC<PageProps> = ({ children, color, gradientTransition, gTHeight }) => {
 
   color = color ? color : '#000'
 

@@ -1,10 +1,10 @@
-interface props {
+interface Props {
   height: number,
   color: string,
   direction?: 'top' | 'bottom',
 }
 
-const GradientTransition: React.FC<props> = ({ height, color, direction }) => {
+const GradientTransition: React.FC<Props> = ({ height, color, direction }) => {
   return (
     <>
       <div className="gradientTransition" />
