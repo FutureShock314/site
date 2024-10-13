@@ -30,9 +30,7 @@ export default function Home() {
   useGSAP(
     () => {
 
-
       let ptl = gsap.timeline()
-
 
       // page1 parallax movement
       ptl.to(
@@ -126,20 +124,24 @@ export default function Home() {
         </div>
       </div>
 
-      <div ref={ parallax1 }>
+      <div ref={ parallax1 } className={ styles.parallax }>
 
         {/* <div className={ styles.gradientTransition }></div> */}
 
         {/* <div className={ styles.page1 }>
           wow
         </div> */}
-        <Page color={ 'red' } gradientTransition gTHeight={ 10 } />
-        {/* --- */}
-        <div ref={ parallax2 }>
+        <Page color={ '#ff0000' } gradientTransition gTHeight={ 10 } className={ styles.fish } />
 
-          <div className={ styles.page2 }>
+        {/* --- */}
+
+        <div ref={ parallax2 } className={ styles.parallax }>
+
+          <Page color={ '#00ff00' } gradientTransition gTHeight={ 20 }>
             wow
-          </div>
+          </Page>
+
+          {/* <div className={ styles.page2 }>wow text</div> */}
 
           <div className={ styles.placeholderDiv }>
             wow some more text

@@ -1,3 +1,5 @@
+import { useEffect, useRef } from "react"
+
 interface Props {
   height: number,
   color: string,
@@ -5,12 +7,31 @@ interface Props {
 }
 
 const GradientTransition: React.FC<Props> = ({ height, color, direction }) => {
+  let gT = useRef(null)
+
+  useEffect(() => {
+    // if ( gT.current !== null ) {
+    gT.current.style.position = 'absolute'
+    gT.current.style.zIndex   = '10'
+
+    gT.current.style.height = `${ height }vh`
+    gT.current.style.width  = '100vw'
+    gT.current.style.top    = `-${ height }vh`
+
+    gT.current.style.background = `linear-gradient(
+    to ${ direction ? direction : 'top' },
+    ${ color }ff 0, 
+    ${ color }00 100%
+    )`
+    // }
+  })
+
   return (
     <>
-      <div className="gradientTransition" />
+      <div id="gradientTransition" ref={ gT }></div>
 
-      <style>{`
-        .gradientTransition {
+      {/* <style>{`
+        #gradientTransition {
           position: absolute;
           z-index: 10;
 
@@ -18,13 +39,13 @@ const GradientTransition: React.FC<Props> = ({ height, color, direction }) => {
           width: 100vw;
           top: -${ height }vh;
 
-          background-color: linear-gradient(
+          background: linear-gradient(
             to ${ direction ? direction : 'top' },
-            ${ color } 100%,
-            ${ color } 0%,
+            ${ color }ff 0,
+            ${ color }00 100%
           );
         }
-      `}</style>
+      `}</style> */}
     </>
   )
 }
