@@ -76,7 +76,6 @@ export default function Home() {
         // }
       // )
       
-      
       // gsap.to(
       //   parallax2.current,
 
