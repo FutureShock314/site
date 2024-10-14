@@ -1,5 +1,4 @@
 import React, { useEffect, useRef } from "react"
-import styles from "@/styles/components/layout/page.module.css"
 import GradientTransition from '@/components/layout/GradientTransition'
 
 interface PageProps {
@@ -8,7 +7,7 @@ interface PageProps {
   gradientTransition?: boolean,
   gTHeight?: number,
   gTDirection?: 'top' | 'bottom',
-  flexCenter?: boolean,
+  // flexCenter?: boolean,
   className?: string
 }
 
@@ -19,12 +18,16 @@ const Page: React.FC<PageProps> = ({ children, color, gradientTransition, gTHeig
   const pageRef = useRef(null)
 
   useEffect(() => {
-    pageRef.current.style.background = color
+    let el = pageRef.current as any
+    
+    el.style.background = color
+    el.style.height = '100vh'
+    el.style.width  = '100vw'
   })
 
   return (
     <>
-      <main className={ styles.page } ref={ pageRef }>
+      <main className={ className } ref={ pageRef }>
         { gradientTransition ?
           <GradientTransition 
             height={ gTHeight ? gTHeight : 10 }

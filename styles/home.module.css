@@ -110,3 +110,9 @@
 
     background-color: rgb(255, 0, 0);
 }
+
+.fish {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

@@ -106,7 +106,7 @@ export default function Home() {
       <Canvas colors='#00f #3a3aff #00fff0 #50f0f0' />
       <div className={ styles.titleContainer }>
         <div className={ styles.title }>
-          <h1>{ `'ello there` }</h1>
+          <h1 className={ `text-8xl font-bold` }>{ `'ello there` }</h1>
           <div className={ styles.leftPad }>
             <p>{ `I'm some guy on the internet` }</p>
             {/* <Typewriter
@@ -131,7 +131,9 @@ export default function Home() {
         {/* <div className={ styles.page1 }>
           wow
         </div> */}
-        <Page color={ '#ff0000' } gradientTransition gTHeight={ 10 } className={ styles.fish } />
+        <Page color={ '#ff0000' } gradientTransition gTHeight={ 10 } className={ `flex items-center justify-center` }>
+          { `wow it's some text` }
+          </Page>
 
         {/* --- */}
 

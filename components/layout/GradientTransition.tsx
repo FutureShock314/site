@@ -3,27 +3,26 @@ import { useEffect, useRef } from "react"
 interface Props {
   height: number,
   color: string,
-  direction?: 'top' | 'bottom',
 }
 
-const GradientTransition: React.FC<Props> = ({ height, color, direction }) => {
+const GradientTransition: React.FC<Props> = ({ height, color }) => {
   let gT = useRef(null)
 
   useEffect(() => {
-    // if ( gT.current !== null ) {
-    gT.current.style.position = 'absolute'
-    gT.current.style.zIndex   = '10'
+    let el = gT.current as any
 
-    gT.current.style.height = `${ height }vh`
-    gT.current.style.width  = '100vw'
-    gT.current.style.top    = `-${ height }vh`
+    el.style.position = 'absolute'
+    el.style.zIndex   = '10'
 
-    gT.current.style.background = `linear-gradient(
-    to ${ direction ? direction : 'top' },
-    ${ color }ff 0, 
-    ${ color }00 100%
+    el.style.height = `${ height }vh`
+    el.style.width  = '100vw'
+    el.style.top    = `-${ height - 0.1 }vh`
+
+    el.style.background = `linear-gradient(
+      to top,
+      ${ color }ff 0, 
+      ${ color }00 100%
     )`
-    // }
   })
 
   return (
