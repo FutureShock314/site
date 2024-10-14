@@ -31,19 +31,13 @@ const GlitchText: React.FC<GlitchTextProps> = ({ text, delay, lower }) => {
           }
 
           return letters[Math.floor(Math.random() * 26)]
-          // return 'w'
         }).join("")
       )
 
       if(iteration >= text.length){ 
         clearInterval(interval);
       }
-    
-      // if ( iteration < 1) {
-        // setIteration( prevIteration => prevIteration += 1 / 25)
-      // } else {
         setIteration( prevIteration => prevIteration += 1 / 3 );
-      // }
     }, delay);
 
     return () => {

@@ -28,23 +28,6 @@ const GradientTransition: React.FC<Props> = ({ height, color }) => {
   return (
     <>
       <div id="gradientTransition" ref={ gT }></div>
-
-      {/* <style>{`
-        #gradientTransition {
-          position: absolute;
-          z-index: 10;
-
-          height: ${ height }vh;
-          width: 100vw;
-          top: -${ height }vh;
-
-          background: linear-gradient(
-            to ${ direction ? direction : 'top' },
-            ${ color }ff 0,
-            ${ color }00 100%
-          );
-        }
-      `}</style> */}
     </>
   )
 }

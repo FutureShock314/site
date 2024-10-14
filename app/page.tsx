@@ -1,4 +1,3 @@
-// Suggested code may be subject to a license. Learn more: ~LicenseLog:2161914837.
 "use client";
 
 import { useRouter } from "next/navigation"
@@ -6,16 +5,12 @@ import { useRef, useEffect, createElement } from "react"
 import styles from '@/styles/home.module.css'
 
 import Canvas from "@/components/Canvas"
-import Typewriter from '@/components/Typewriter'
 import GlitchText from "@/components/GlitchText";
 import Page from '@/components/layout/Page';
-import GradientTransition from "@/components/layout/GradientTransition";
 
 import gsap from "gsap"
 import { useGSAP } from "@gsap/react"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
-
-
 
 
 export default function Home() {
@@ -25,7 +20,6 @@ export default function Home() {
   const parallax1 = useRef(null),
         parallax2 = useRef(null)
 
-  let p2El = useRef(null)
 
   useGSAP(
     () => {
@@ -59,45 +53,13 @@ export default function Home() {
             // markers: true,
           },
           y: `-=50%`,
-          // position: 'sticky',
         }
       )
-        // .to(
-        // parallax2.current,
-        // {
-        //   scrollTrigger: {
-        //     trigger: parallax2.current,
-        //     start: `-50% center`,
-        //     end: 'top top',
-        //     scrub: true,
-        //     markers: true,
-        //   },
-        //   y: 0
-        // }
-      // )
-      
-      // gsap.to(
-      //   parallax2.current,
-
-      //   {
-      //     scrollTrigger: {
-      //       trigger: parallax2.current,
-      //       start: `-50% 50%`,
-      //       end: `+=100%`,
-      //       scrub: true,
-      //       markers: true,
-      //     },
-      //     y: `+=100%`,
-      //     position: 'sticky',
-      //   }
-      // )
-
     }
   )
 
 
   const router = useRouter()
-
   // router.push('/~/')
 
   return (
@@ -108,13 +70,6 @@ export default function Home() {
           <h1 className={ `text-8xl font-bold` }>{ `'ello there` }</h1>
           <div className={ styles.leftPad }>
             <p>{ `I'm some guy on the internet` }</p>
-            {/* <Typewriter
-              text="This is a test message"
-              delay={ 100 }
-              // cursorChar={ `>` }
-              // loop
-            />
-            <br /> */}
             <GlitchText 
               text={ `This is another test message` }
               delay={ 10 }
@@ -125,14 +80,9 @@ export default function Home() {
 
       <div ref={ parallax1 } className={ styles.parallax }>
 
-        {/* <div className={ styles.gradientTransition }></div> */}
-
-        {/* <div className={ styles.page1 }>
-          wow
-        </div> */}
         <Page color={ '#ff0000' } gradientTransition gTHeight={ 10 } className={ `flex items-center justify-center` }>
           { `wow it's some text` }
-          </Page>
+        </Page>
 
         {/* --- */}
 
@@ -142,14 +92,14 @@ export default function Home() {
             wow
           </Page>
 
-          {/* <div className={ styles.page2 }>wow text</div> */}
-
           <div className={ styles.placeholderDiv }>
             wow some more text
           </div>
 
         </div>
+
         {/* --- */}
+
       </div>
 
       <div className={ styles.page1 }>
