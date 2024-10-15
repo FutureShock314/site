@@ -65,10 +65,11 @@ export default function Home() {
   return (
     <>
       <Canvas colors='#00f #3a3aff #00fff0 #50f0f0' />
-      <div className={ styles.titleContainer }>
-        <div className={ styles.title }>
+      <Page color={ `#00000000` } className={ styles.titleContainer }>
+
+        <div className={ styles.titleCard }>
           <h1 className={ `text-8xl font-bold` }>{ `'ello there` }</h1>
-          <div className={ styles.leftPad }>
+          <div className={ styles.titleContent }>
             <p>{ `I'm some guy on the internet` }</p>
             <GlitchText 
               text={ `This is another test message` }
@@ -76,11 +77,16 @@ export default function Home() {
             />
           </div>
         </div>
-      </div>
 
-      <div ref={ parallax1 } className={ styles.parallax }>
+      </Page>
 
-        <Page color={ '#ff0000' } gradientTransition gTHeight={ 10 } className={ `flex items-center justify-center` }>
+      <div ref={ parallax1 }>
+
+        <Page
+          color={ '#00a0ff' }
+          gradientTransition gTHeight={ 10 }
+          className={ `flex items-center justify-center` }
+        >
           { `wow it's some text` }
         </Page>
 
@@ -92,9 +98,15 @@ export default function Home() {
             wow
           </Page>
 
-          <div className={ styles.placeholderDiv }>
+          {/* <div className={ styles.placeholderDiv }>
             wow some more text
-          </div>
+          </div> */}
+
+          <Page
+            color={ `#000000` }
+            className={ styles.transitionFromParallax }
+            gradientTransition
+          />
 
         </div>
 
@@ -102,9 +114,7 @@ export default function Home() {
 
       </div>
 
-      <div className={ styles.page1 }>
-        wow yet more text
-      </div>
+      <Page color={ `#0000ff` } />
 
     </>
   )
