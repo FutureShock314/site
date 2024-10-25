@@ -5,6 +5,7 @@ import { useRef, useEffect, createElement } from "react"
 import styles from '@/styles/home.module.css'
 
 import Canvas from "@/components/Canvas"
+import Cube from '@/components/Cube'
 import GlitchText from "@/components/GlitchText";
 import Page from '@/components/layout/Page';
 
@@ -18,8 +19,8 @@ export default function Home() {
   gsap.registerPlugin(useGSAP, ScrollTrigger)
 
   const parallax1 = useRef(null),
-        parallax2 = useRef(null)
-
+        parallax2 = useRef(null),
+        cubeWrapper = useRef(null)
 
   useGSAP(
     () => {
@@ -55,6 +56,25 @@ export default function Home() {
           y: `-=50%`,
         }
       )
+
+
+      let cubeTL = gsap.timeline()
+
+      cubeTL.to(
+        cubeWrapper.current,
+        {
+          scrollTrigger: {
+            trigger: cubeWrapper.current,
+            start: `top bottom`,
+            end: `bottom top`,
+            scrub: true,
+            markers: true,
+          },
+          left: '+=120%',
+          // transform: 'rotate3d(1, 1, 0, 45deg)'
+        }
+      )
+
     }
   )
 
@@ -90,17 +110,15 @@ export default function Home() {
           { `wow it's some text` }
         </Page>
 
-        {/* --- */}
-
         <div ref={ parallax2 } className={ styles.parallax }>
 
-          <Page color={ '#00ff00' } gradientTransition gTHeight={ 20 }>
+          <Page
+            color={ '#00d0f0' }
+            gradientTransition gTHeight={ 10 }
+            className={ `flex items-center justify-center` }
+          >
             wow
           </Page>
-
-          {/* <div className={ styles.placeholderDiv }>
-            wow some more text
-          </div> */}
 
           <Page
             color={ `#000000` }
@@ -111,10 +129,14 @@ export default function Home() {
         </div>
 
         {/* --- */}
+      <div ref={ cubeWrapper } className={ styles.cubeWrapper }>
+        <Cube />
+      </div>
 
       </div>
 
-      <Page color={ `#0000ff` } />
+
+      <Page color={ `#0000ff` } gradientTransition gTHeight={ 10 } />
 
     </>
   )

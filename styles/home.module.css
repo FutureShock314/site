@@ -65,3 +65,16 @@
     /* background-color: rgb(255, 0, 0); */
 }
 
+
+.cubeWrapper {
+    justify-self: start;
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    perspective: 500px;
+    margin: 100px;
+
+    transform-style: preserve-3d;
+
+    left: -50%;
+}
