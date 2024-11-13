@@ -8,6 +8,7 @@ const Page = () => {
   let [timerCount, setTimerCount] = useState(0)
   let [buttonText, setButtonText] = useState('get more money')
   let [timerRunning, setTimerRunning] = useState(false)
+  
   const sleep = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
   const handleClick = () => {
