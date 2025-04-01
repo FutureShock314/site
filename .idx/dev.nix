@@ -5,7 +5,18 @@
     python313Full
   ];
   idx.extensions = [
-    
+    "dbaeumer.vscode-eslint"
+    "Equinusocio.vsc-material-theme"
+    "equinusocio.vsc-material-theme-icons"
+    "haudraufhaun.hyper-is-theme"
+    "KevinRose.vsc-python-indent"
+    "ms-python.debugpy"
+    "ms-python.python"
+    "oderwat.indent-rainbow"
+    "SirTori.indenticator"
+    "usernamehw.errorlens"
+    "zjffun.snippetsmanager"
+    "vscodevim.vim"
   ];
   idx.previews = {
     previews = {
